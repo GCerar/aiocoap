@@ -254,7 +254,8 @@ class Message(object):
 
         block2 = next_block.opt.block2
         if block2.start != len(self.payload):
-            raise error.NotImplemented()
+            #raise error.NotImplemented()
+            self.payload = self.payload[:block2.start]
 
         if next_block.opt.etag != self.opt.etag:
             raise error.ResourceChanged()
